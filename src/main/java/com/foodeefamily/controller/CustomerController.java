@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/customer")
@@ -25,5 +26,7 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
 
+    @GetMapping("/getById/{id}")
+    public Optional<Customer> getById(@PathVariable int id){ return customerService.findCustomerById(id); }
 
 }
